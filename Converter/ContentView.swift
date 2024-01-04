@@ -44,6 +44,22 @@ enum VolumeMode: String,  CaseIterable{
     case Gallons
 }
 
+func convertTemperature(startUnit : TemperatureMode, endUnit : TemperatureMode)->String{
+    return "";
+}
+
+func convertLength(startUnit: LengthMode, endUnit: LengthMode)->String{
+    return "";
+}
+
+func convertTime(startUnit: TemperatureMode, endUnit: TemperatureMode)->String{
+    return "";
+}
+
+func convertVolume(startUnit: VolumeMode, endUnit: VolumeMode)->String{
+    return "";
+}
+
 struct ContentView: View {
     @State private var mode: ConverterMode = ConverterMode.Temperature
     @State private var temperatureMode : TemperatureMode = TemperatureMode.Celsius
@@ -54,6 +70,7 @@ struct ContentView: View {
     @State private var endTimeMode : TimeMode = TimeMode.Seconds
     @State private var volumeMode : VolumeMode = VolumeMode.Milliliters
     @State private var endVolumeMode : VolumeMode = VolumeMode.Milliliters
+    @State private var rate : String = "0.0"
     var body: some View {
         NavigationStack{
             Form{
@@ -116,6 +133,13 @@ struct ContentView: View {
                         }
                     }
                 }
+               Section("Enter amount to convert") {
+                    TextField("unit", text: $rate )
+                }
+                Section("Result") {
+                     Text("\(rate)")
+                }
+                
             }.navigationTitle("Converter")
         }
     }
